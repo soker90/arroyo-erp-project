@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  database:
+    image: mongo:4.2
+    container_name: arroyo-mongo
+    env_file: .env
+    environment:
+      MONGO_INITDB_DATABASE: ${DATABASE_NAME}
+      MONGO_INITDB_ROOT_USERNAME: ${DATABASE_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - mongodb:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+
+  api:
+    image: arroyo-api:1.0
+    env_file: .env
+    environment:
+      MONGO_INITDB_DATABASE: ${DATABASE_NAME}
+      MONGO_INITDB_ROOT_USERNAME: ${DATABASE_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+    build:
+      context: ./api
+    depends_on:
+      - database
+    ports:
+      - "3008:3008"
+    networks:
+      - app-network
+
+  client:
+    image: arroyo-client:1.0
+    build:
+      context: ./client
+    ports:
+      - 80:80
+    networks:
+      - app-network
+
+volumes:
+  mongodb:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

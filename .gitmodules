@@ -1,0 +1,6 @@
+[submodule "api"]
+	path = api
+	url = git@github.com:soker90/arroyo-erp-api.git
+[submodule "client"]
+	path = client
+	url = git@github.com:soker90/arroyo-erp-client.git
