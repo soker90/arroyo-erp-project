@@ -2,7 +2,7 @@ version: '3'
 
 services:
   database:
-    image: mongo:4.2
+    image: mongo:4.4
     container_name: arroyo-mongo
     env_file: .env
     environment:
