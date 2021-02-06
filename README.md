@@ -11,6 +11,21 @@ Backoffice para la gestión de pymes
 git clone --recurse-submodules https://github.com/soker90/arroyo-erp-project.git
 ```
 
+## Arrancar aplicación
+```
+docker-compose up -d --build
+```
+
+## Parar aplicación
+```
+docker-compose stop
+```
+
+## Descargar nuevos cambios
+```
+git pull --recurse-submodules
+```
+
 ## Versiones
 
 |    Project    |    Models    |    Api    |    Client    |
