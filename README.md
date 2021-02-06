@@ -15,4 +15,5 @@ git clone --recurse-submodules https://github.com/soker90/arroyo-erp-project.git
 
 |    Project    |    Models    |    Api    |    Client    |
 |:-------------:|:------------:|:---------:|:------------:|
-|    v1.0.0     |    v1.0.2    |   v1.0.0  |   v1.0.0     |
+|    v1.0.2     |    v1.0.2    |   v1.0.2  |   v1.0.0     |
+|    v1.0.0     |    v1.0.2    |   v1.0.0  |   v1.0.0pre  |
