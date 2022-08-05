@@ -18,7 +18,7 @@ services:
       - app-network
 
   api:
-    image: arroyo-api:1.0
+    image: soker90/arroyo-erp-api:latest
     env_file: .env
     environment:
       DATABASE_NAME: ${DATABASE_NAME}
@@ -27,8 +27,8 @@ services:
       DATABASE_HOST: database
       ARROYO_TOKEN_TELEGRAM: ${ARROYO_TOKEN_TELEGRAM}
       ARROYO_CHAT_ID_TELEGRAM: ${ARROYO_CHAT_ID_TELEGRAM}
-    build:
-      context: ./api
+    volumes:
+      - /opt/arroyo/plantillas:/home/node/app/templates
     depends_on:
       - database
     ports:
@@ -37,9 +37,7 @@ services:
       - app-network
 
   client:
-    image: arroyo-client:1.0
-    build:
-      context: ./client
+    image: soker90/arroyo-erp-client:latest
     ports:
       - 80:80
     networks:
