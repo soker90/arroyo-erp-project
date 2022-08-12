@@ -6,14 +6,14 @@ Backoffice para la gestión de pymes
 * [Api](https://github.com/soker90/arroyo-erp-api)
 * [Modelo](https://github.com/soker90/arroyo-erp-models)
 
-## Descarga del códgio fuente
+## Descarga el archivo de docker compose
 ```
-git clone --recurse-submodules https://github.com/soker90/arroyo-erp-project.git
+git clone https://github.com/soker90/arroyo-erp-project.git
 ```
 
 ## Arrancar aplicación
 ```
-docker-compose up -d --build
+docker-compose up -d
 ```
 
 ## Parar aplicación
